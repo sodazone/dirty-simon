@@ -39,46 +39,10 @@ export default function crypto (memory: Memory) {
     ext_hashing_blake2_128_version_1: (dataPtr: bigint): number => {
       return blake2(128, dataPtr)
     },
-    ed25519_verify: (msgPtr: number, msgLen: number, sigPtr: number, pubkeyPtr: number): number => {
-      const m = memory.get(msgPtr, msgLen)
-      const s = memory.get(sigPtr, 64)
-      const p = memory.get(pubkeyPtr, 32)
-
-      try {
-        return ed25519Verify(m, s, p) ? 0 : 5
-      } catch (error) {
-        return 5
-      }
-    },
     ext_hashing_keccak_256_version_1: (dataPtr: bigint): number => {
       const data = memory.read(dataPtr)
       const hash = keccakAsU8a(data)
       return getPointer(memory.write(hash))
-    },
-    secp256k1_ecdsa_recover: (msgPtr: number, sigPtr: number, pubkeyPtr: number): number => {
-      const m = memory.get(msgPtr, 32)
-      const s = memory.get(sigPtr, 65)
-
-      try {
-        const publicKey = secp256k1Recover(m, s, 0)
-
-        memory.set(pubkeyPtr, publicKey)
-      } catch (error) {
-        return 5
-      }
-
-      return 0
-    },
-    sr25519_verify: (msgPtr: number, msgLen: number, sigPtr: number, pubkeyPtr: number): number => {
-      const m = memory.get(msgPtr, msgLen)
-      const s = memory.get(sigPtr, 64)
-      const p = memory.get(pubkeyPtr, 32)
-
-      try {
-        return sr25519Verify(m, s, p) ? 0 : 5
-      } catch (error) {
-        return 5
-      }
     },
     ext_hashing_twox_64_version_1: (dataPtr: bigint): number =>
       twox(64, dataPtr),
