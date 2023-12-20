@@ -21,6 +21,7 @@ bun start
 
 <details>
 <summary>output</summary>
+
 ```
 {
   free: {
@@ -684,6 +685,7 @@ CLEAR 26aa394eea5630e07c48ae0c9558cef7df1daeb8986837f21cc5d17596bb78d1b4def25cfd
 TX ROOT 042c280402000b90110eb36e01
 STORAGE ROOT 1
 ```
+
 </details>
 
 ---
