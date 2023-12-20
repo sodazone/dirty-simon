@@ -1,5 +1,5 @@
 import {
-  blake2AsU8a, keccakAsU8a, sr25519Verify, ed25519Verify, xxhashAsU8a, secp256k1Recover
+  blake2AsU8a, keccakAsU8a, xxhashAsU8a
 } from '@polkadot/util-crypto'
 import { Memory } from './memory'
 import { getPointer } from './interface'
