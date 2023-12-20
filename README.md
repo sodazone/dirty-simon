@@ -4,7 +4,7 @@ The project, codenamed "Dirty Simon", is an experimental exploration to assess t
 
 Functionality:
 
-- Loads the Kusama WASM runtime and genesis state
+- Loads the Kusama Wasm runtime and genesis state
 - Executes a test block using `Core_execute_block`
 
 To install dependencies:
