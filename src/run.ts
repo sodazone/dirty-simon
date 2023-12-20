@@ -36,6 +36,7 @@ const {
 } = JSON.parse(readFileSync(
   dataPath('kusama.json')
 ).toString())
+
 storage.loadFromTop(top)
 
 const block = readFileSync(dataPath('test-block.bin'))

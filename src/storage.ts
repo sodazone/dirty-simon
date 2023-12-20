@@ -62,7 +62,9 @@ class DummyStorage implements Storage {
     ))
     if (nextKey === undefined) { return Uint8Array.of(0) }
 
-    const enc = new Option(registry, 'Vec<u8>', `0x01${hex(compactToU8a(nextKey.length / 2))}${nextKey}`)
+    const enc = new Option(registry, 'Vec<u8>',
+      `0x01${hex(compactToU8a(nextKey.length / 2))}${nextKey}`
+    )
 
     console.log('NEXT KEY', nextKey)
 
