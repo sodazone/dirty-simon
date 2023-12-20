@@ -1,17 +1,7 @@
 import { MemPool, MemPoolStats } from './allocator'
 import { fromPointerSize, toPointerSize } from './interface'
 
-export interface Heap {
-  malloc: (bytes: number) => number
-  free: (ptr: number) => boolean
-  set: (ptr: number, value: Uint8Array) => void
-  get: (ptr: number, size: number) => Uint8Array
-  read: (ptrSize: bigint) => Uint8Array
-  write: (value: Uint8Array) => bigint
-  stats: () => Readonly<MemPoolStats>
-}
-
-export class Memory implements Heap {
+export class Memory {
   memory: WebAssembly.Memory
   _heap?: MemPool
 
